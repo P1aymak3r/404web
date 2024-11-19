@@ -5,5 +5,5 @@ export type BackgroundVideo = {
   };
   
   export const backgroundVideos: BackgroundVideo[] = [
-    { id: 1, title: "배경 영상 1", url: "https://drive.google.com/file/d/13axklqj4293J6582g_RgU19stTlKDss3/view?usp=sharing" },
+    { id: 1, title: "배경 영상 1", url: "/videos/1.mp4" },
   ];
