@@ -1,10 +1,10 @@
-"use client";
+'use client'
 
 import { useEffect, useState } from 'react'
 import { ChevronLeft, ChevronRight, Plus } from 'lucide-react'
 import { format, addMonths, subMonths, startOfMonth, endOfMonth, eachDayOfInterval, isSameMonth, isSameDay, setMonth } from 'date-fns'
 import { ko } from 'date-fns/locale'
-import { Button as UiButton } from '@/components/ui/button'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import {
   HoverCard,
@@ -56,7 +56,7 @@ export default function Component() {
         // Initialize the Google Calendar API client
         // Note: You'll need to set up Google Calendar API credentials
         // and handle authentication in your application
-
+        
         // Mock events for demonstration
         const mockEvents: CalendarEvent[] = [
           {
@@ -113,39 +113,39 @@ export default function Component() {
             <h1 className="text-2xl font-bold" style={{ color: '#003366' }}>서강 CALENDAR</h1>
             <Popover open={isMonthSelectorOpen} onOpenChange={setIsMonthSelectorOpen}>
               <PopoverTrigger asChild>
-                <UiButton
+                <Button
                   variant="outline"
                   className="text-lg font-medium"
                   style={{ color: '#003366' }}
                 >
                   {format(currentDate, 'yyyy년 M월', { locale: ko })} 
-                </UiButton>
+                </Button>
               </PopoverTrigger>
               <PopoverContent className="w-56">
                 <div className="grid grid-cols-3 gap-2">
                   {Array.from({ length: 12 }, (_, i) => (
-                    <UiButton
+                    <Button
                       key={i}
                       variant="ghost"
                       onClick={() => handleMonthSelect(i)}
                     >
                       {format(setMonth(new Date(), i), 'MMM', { locale: ko })}
-                    </UiButton>
+                    </Button>
                   ))}
                 </div>
               </PopoverContent>
             </Popover>
           </div>
           <div className="flex items-center gap-4">
-            <UiButton variant="ghost" onClick={previousMonth}>
+            <Button variant="ghost" onClick={previousMonth}>
               <ChevronLeft className="h-4 w-4" />
-            </UiButton>
-            <UiButton variant="ghost" onClick={nextMonth}>
+            </Button>
+            <Button variant="ghost" onClick={nextMonth}>
               <ChevronRight className="h-4 w-4" />
-            </UiButton>
-            <UiButton variant="ghost">
+            </Button>
+            <Button variant="ghost">
               <Plus className="h-4 w-4" />
-            </UiButton>
+            </Button>
           </div>
         </div>
 
@@ -174,7 +174,7 @@ export default function Component() {
             return (
               <HoverCard key={day.toString()}>
                 <HoverCardTrigger asChild>
-                  <UiButton
+                  <Button
                     variant="ghost"
                     className={cn(
                       "h-20 w-full flex flex-col items-center justify-start p-2",
@@ -198,7 +198,7 @@ export default function Component() {
                         ))}
                       </div>
                     )}
-                  </UiButton>
+                  </Button>
                 </HoverCardTrigger>
                 {dayEvents.length > 0 && (
                   <HoverCardContent className="w-80">
